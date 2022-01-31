@@ -1,30 +1,11 @@
+// Use state возращает массив из 2-х объектов
 import React, { useState } from "react";
+import Counter from "./Components/Counter";
 
-function App() {
-  // Use state возращает массив из 2-х объектов
-  const [likes, setLikes] = useState(0);
-  const [value, setValue] = useState('ТЕКСТ В ИНПУТЕ');
-  
-  function increment() {
-    setLikes(likes + 1)
-  }
-  
-  function decrement() {
-    setLikes(likes - 1)
-  }
-
-
+function App() {  
   return (
     <div className="App">
-        <h1>{likes}</h1>
-        <h1>{value}</h1>
-        <input 
-          type="text" 
-          value={value} 
-          onChange={event => setValue(event.target.value)}
-        />
-        <button onClick={increment}>Increment</button>
-        <button onClick={decrement}>Decrement</button>
+       <Counter />
     </div>
   );
 }
