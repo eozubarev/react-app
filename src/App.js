@@ -4,6 +4,7 @@ import ClassCounter from "./Components/ClassCounter";
 import Counter from "./Components/Counter";
 import PostItem from "./Components/PostItem";
 import Postlist from "./Components/PostList";
+import Mybutton from "./Components/UI/button/MyButton";
 import './styles/App.css';
 
 function App() {  
@@ -20,8 +21,12 @@ function App() {
 
   return (
     <div className="App">
+      <form>
+        <input type="text" placeholder="Название поста"/>
+        <input type="text" placeholder="Описание поста"/>
+        <Mybutton>Создать пост</Mybutton>
+      </form>
       <Postlist posts={posts} title={'Посты про JS'}/>
-      <Postlist posts={posts2} title={'Посты про Phyton'}/>
     </div>
   );
   

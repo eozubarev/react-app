@@ -1,0 +1,13 @@
+/* 
+    С помощью директивы .module у нас классы называютя по разному и мы можем изолировать стили и не использовать БЭМ
+    Генерирует уникальное название в завис. от модуля
+*/
+
+.myBtn {
+    padding: 5px 15px;
+    color: teal;
+    font-size: 14px;
+    background: transparent;
+    border: 1px solid teal;
+    cursor: pointer;
+}
