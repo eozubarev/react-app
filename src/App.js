@@ -1,5 +1,5 @@
 // Use state возращает массив из 2-х объектов
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import ClassCounter from "./Components/ClassCounter";
 import Counter from "./Components/Counter";
 import PostItem from "./Components/PostItem";
@@ -20,9 +20,12 @@ function App() {
     {id: 3, title: 'Python', body: 'Javascript - язык программирования'},
   ])
 
-  const [title, setTitle] = useState('')
+  const [title, setTitle] = useState('');
+  const bodyInputRef = useRef();
 
-  const addNewPost = () => {
+  const addNewPost = (e) => {
+    e.preventDefault()
+    console.log(bodyInputRef.current.value);
     
   }
 
@@ -32,11 +35,17 @@ function App() {
       {/* Управляемый компонент */}
         <Myinput 
             value={title}
+            onChange={e => setTitle(e.target.value)}
             type="text" 
             placeholder="Название поста" 
           />
-        <Myinput type="text" placeholder="Описание поста" />
-        <Mybutton onClick={addNewPost} disabled>Создать пост</Mybutton>
+          <input ref={bodyInputRef} type="text" />
+        {/* <Myinput 
+            ref={bodyInputRef}
+            type="text" 
+            placeholder="Описание поста" 
+          /> */}
+        <Mybutton onClick={addNewPost}>Создать пост</Mybutton>
       </form>
       <Postlist posts={posts} title={'Посты про JS'}/>
     </div>
