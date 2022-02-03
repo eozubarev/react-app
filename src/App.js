@@ -5,6 +5,7 @@ import Counter from "./Components/Counter";
 import PostItem from "./Components/PostItem";
 import Postlist from "./Components/PostList";
 import Mybutton from "./Components/UI/button/MyButton";
+import Myinput from "./Components/UI/input/MyInput";
 import './styles/App.css';
 
 function App() {  
@@ -19,12 +20,23 @@ function App() {
     {id: 3, title: 'Python', body: 'Javascript - язык программирования'},
   ])
 
+  const [title, setTitle] = useState('')
+
+  const addNewPost = () => {
+    
+  }
+
   return (
     <div className="App">
       <form>
-        <input type="text" placeholder="Название поста"/>
-        <input type="text" placeholder="Описание поста"/>
-        <Mybutton disabled>Создать пост</Mybutton>
+      {/* Управляемый компонент */}
+        <Myinput 
+            value={title}
+            type="text" 
+            placeholder="Название поста" 
+          />
+        <Myinput type="text" placeholder="Описание поста" />
+        <Mybutton onClick={addNewPost} disabled>Создать пост</Mybutton>
       </form>
       <Postlist posts={posts} title={'Посты про JS'}/>
     </div>
